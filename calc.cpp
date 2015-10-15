@@ -49,7 +49,7 @@ int Calc::value(void) {
   return -1;
 }
 
-// value2 -> S* ('~' / '!')? value
+// value2 <- S* ('~' / '!')? value
 int Calc::value2(void) {
   int res;
   while( S() != -1 ) ;
@@ -66,7 +66,7 @@ int Calc::value2(void) {
   return value();
 }
 
-// term -> S* value2 (S* '*'? S* value2)*
+// term <- S* value2 (S* '*'? S* value2)*
 int Calc::term(void) {
   int res = 1, temp;
   while( S() != -1 ) ;
@@ -89,7 +89,7 @@ int Calc::term(void) {
   return -1;
 }
 
-// add -> S* term (S* '+' S* term)*
+// add <- S* term (S* '+' S* term)*
 int Calc::add(void) {
   int res = 0, temp;
   while( S() != -1 ) ;
@@ -113,7 +113,7 @@ int Calc::add(void) {
   return -1;
 }
 
-// expr -> S* add
+// expr <- S* add
 int Calc::expr(void) {
   int res;
   while( S() != -1 ) ;
